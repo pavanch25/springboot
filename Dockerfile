@@ -19,7 +19,7 @@ RUN npm run build
 # Stage 2: Serve app with nginx server
 
 # Use official nginx image as the base image
-FROM nginx:latest
+FROM ubi8/nginx-118
 
 # Copy the build output to replace the default nginx contents.
 RUN rm -rf /usr/share/nginx/html/* && rm -rf /etc/nginx/nginx.conf
