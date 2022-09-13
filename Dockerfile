@@ -1,7 +1,7 @@
 # Stage 1: Compile and Build angular codebase
 
 # Use official node image as the base image
-FROM node:16 as build
+FROM registry.access.redhat.com/ubi8/nodejs-16:latest as build
 
 # Set the working directory
 WORKDIR /usr/local/app
