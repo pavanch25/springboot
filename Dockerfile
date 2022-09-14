@@ -1,7 +1,7 @@
 # Stage 1: Compile and Build angular codebase
 
 # Use official node image as the base image
-FROM registry.access.redhat.com/ubi8/nodejs-16:latest as build
+FROM node as build
 
 # Set the working directory
 WORKDIR /usr/local/app
@@ -12,7 +12,7 @@ COPY ./ /usr/local/app/
 # Stage 2: Serve app with nginx server
 
 # Use official nginx image as the base image
-FROM ubi8/nginx-118
+FROM nginx
 
 # Copy the build output to replace the default nginx contents.
 RUN rm -rf /usr/share/nginx/html/* && rm -rf /etc/nginx/nginx.conf
