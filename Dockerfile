@@ -1,7 +1,7 @@
 # Stage 1: Compile and Build angular codebase
 
 # Use official node image as the base image
-FROM node as build
+FROM public.ecr.aws/docker/library/node:latest as build
 
 # Set the working directory
 WORKDIR /usr/local/app
@@ -12,7 +12,7 @@ COPY ./ /usr/local/app/
 # Stage 2: Serve app with nginx server
 
 # Use official nginx image as the base image
-FROM nginx
+FROM public.ecr.aws/nginx/nginx:stable
 
 # Copy the build output to replace the default nginx contents.
 RUN rm -rf /usr/share/nginx/html/* && rm -rf /etc/nginx/nginx.conf
